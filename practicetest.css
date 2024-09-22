@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --purple: #6a0dad; /* Purple */
+    --dark-pink: #ffffff; /* Dark glossy pink */
+    --light-green: #DAF7A6; /* Light green */
+    --neutral-gray: rgb(194, 194, 194); /* Neutral gray */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Dark text color */
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in; /* Fade-in animation for body */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.header {
+    background-color: var(--purple); /* Header background */
+    color: var(--dark-pink); /* Dark pink text color */
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideIn 0.5s ease-in; /* Slide-in animation for header */
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--dark-pink);
+}
+
+.sitename {
+    margin: 0;
+    font-size: 24px;
+}
+
+.navmenu {
+    flex-grow: 1;
+}
+
+.navmenu ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.navmenu li {
+    margin-left: 20px;
+}
+
+.navmenu a {
+    color: white; /* White link color */
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s; /* Add transform for hover effect */
+}
+
+.navmenu a:hover,
+.navmenu a.active {
+    color: var(--dark-pink); /* Dark pink for hover/active */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Container for tests */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: var(--neutral-gray);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 0.5s ease-in; /* Fade-in animation for container */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--dark-pink);
+    font-size: 2.5em;
+}
+
+.search-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#search-bar {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid var(--purple);
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#search-bar:focus {
+    border-color: var(--purple); 
+    box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+
+#type-filter {
+    width: 25%;
+    padding: 10px;
+    border: 2px solid var(--purple);
+    border-radius: 5px;
+    background: #f0f4f8; /* Light background for select */
+    transition: border-color 0.3s;
+}
+
+#type-filter:focus {
+    border-color: var(--purple);
+}
+
+.test-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.test-item {
+    background: white; /* White background for the names box */
+    color: black; /* Black text color */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 5px solid var(--purple); /* Purple left border */
+}
+
+.test-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.test-item span {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: black; /* Ensures the name is black */
+}
+
+.test-button {
+    background: var(--purple); /* Purple button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Button animation */
+    font-weight: bold;
+}
+
+.test-button:hover {
+    background: #8a2be2; /* Slightly lighter purple on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.test-button:active {
+    transform: scale(0.95);
+}
+
+/* Mobile styles */
+.mobile-nav-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navmenu ul {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        right: 0;
+        background-color: white; /* Same white background */
+        width: 200px;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for dropdown */
+    }
+
+    .navmenu.active ul {
+        display: flex;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        color: #2c5f2d; /* Dark green toggle icon */
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
